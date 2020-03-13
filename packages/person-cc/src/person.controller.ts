@@ -1,3 +1,4 @@
+import * as yup from 'yup';
 import { ChaincodeTx } from '@worldsibu/convector-platform-fabric';
 import {
   Controller,
@@ -16,5 +17,17 @@ export class PersonController extends ConvectorController<ChaincodeTx> {
     person: Person
   ) {
     await person.save();
+  }
+
+  @Invokable()
+  public async get(
+    @Param(yup.string())
+    id: string
+  ) {
+    const existing = await Person.getOne(id);
+    if (!existing || !existing.id) {
+      throw new Error(`No person exists with that ID ${id}`);
+    }
+    return existing;
   }
 }
