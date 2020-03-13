@@ -1,0 +1,16 @@
+{
+  "txTimeout": 300000,
+  "skipInit": true,
+  "controllers": [
+    {
+      "name": "person-cc",
+      "version": "file:./packages/person-cc",
+      "controller": "PersonController"
+    },
+    {
+      "name": "participant-cc",
+      "version": "file:./packages/participant-cc",
+      "controller": "ParticipantController"
+    }
+  ]
+}
