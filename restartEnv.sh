@@ -8,6 +8,8 @@ npm run env:restart
 echo "deploy chaincode"
 npm run cc:start -- person
 
+sleep 20
+
 echo "invoke some stuff"
 hurl invoke person participant_register gov "Big Government" -u admin
 hurl invoke person participant_register mit "MIT" -u user1
